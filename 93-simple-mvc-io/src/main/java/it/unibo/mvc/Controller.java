@@ -11,13 +11,13 @@ public class Controller {
     private File currentFile;
 
     public Controller() {
-        String userHome = System.getProperty("user.home");
-        String fileSeparator = System.getProperty("file.separator");
-        String defaultFilePath = userHome + fileSeparator + "output.txt";
+        final String userHome = System.getProperty("user.home");
+        final String fileSeparator = System.getProperty("file.separator");
+        final String defaultFilePath = userHome + fileSeparator + "output.txt";
         this.currentFile = new File(defaultFilePath);
     }
 
-    public void setCurrentFile(File file) {
+    public void setCurrentFile(final File file) {
         this.currentFile = file;
     }
 
@@ -29,14 +29,14 @@ public class Controller {
         return currentFile.getPath();
     }
 
-    public void inputString(String string) throws IOException {
+    public void inputString(final String string) throws IOException {
         try {
-            FileWriter writer = new FileWriter(currentFile);
+            final FileWriter writer = new FileWriter(currentFile);
             writer.write(string);
             writer.close();
         } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("No file is currently set");
+            e.printStackTrace(); // NOPMD
+            System.out.println("No file is currently set"); // NOPMD
         }
     }
 }
