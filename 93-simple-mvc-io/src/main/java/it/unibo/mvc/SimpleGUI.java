@@ -47,14 +47,7 @@ public final class SimpleGUI {
     }
 
     public static void main(final String[] args) {
-        final Controller controller = new Controller();
-
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new SimpleGUI(controller);
-            }
-        });
+        Controller controller = new Controller();
+        SimpleGUI gui = new SimpleGUI(controller);
     }
-
 }
